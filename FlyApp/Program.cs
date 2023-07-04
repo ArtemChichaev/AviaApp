@@ -5,19 +5,49 @@ namespace FlyApp
 {
     internal class Program
     {
-        static void Main()
+         static WorkWithDb wWdB = new WorkWithDb();
+        static void Main(string[] args)
         {
-            using var db = new AppDbContext();
+            Console.WriteLine("Доступные команды:");
+            Console.WriteLine();
 
-            var passenger = new AppPassengers()
+            List<string> availableAction = new List<string>()
+    {
+        "Добавить пассажира",
+        "Добавить рейс",
+        "Зарегестрировать пассажира",
+        "Показать всех пассажиров",
+        "Показать все рейсы"
+    };
+            foreach (string action in availableAction)
             {
-                FullName = "Иванов Иван Иванович",
-                PassportSeries = 1122,
-                PassportId = 334455,
-            };
-            db.Passengers.Add(passenger);
-            db.SaveChanges();
-            Console.WriteLine('w');
+                Console.WriteLine(action);
+            }
+            string userChoise = Console.ReadLine();
+            switch (userChoise)
+            {
+                case "Добавить пассажира":
+                    Console.WriteLine("Введите ФИО, серию и номер паспорта, номер рейса пассажира:");
+                    string fullName = Console.ReadLine();
+                    int passportSeries = int.Parse(Console.ReadLine());
+                    int passportId = int.Parse(Console.ReadLine());
+                    int flightsId = int.Parse(Console.ReadLine());
+                    wWdB.AddPassenger(fullName, passportSeries, passportId, flightsId);
+                    break;
+                case "Добавить рейс":
+
+                    break;
+                case "Зарегестрировать пассажира":
+
+                    break;
+                case "Показать всех пассажиров":
+
+                    break;
+                case "Показать все рейсы":
+
+                    break;
+
+            }
         }
     }
 }
