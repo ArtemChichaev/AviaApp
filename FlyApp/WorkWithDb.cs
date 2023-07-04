@@ -11,8 +11,7 @@ namespace FlyApp
     {
         AppDbContext db = new AppDbContext();
 
-
-        public  AppPassengers AddPassenger(string fullName, int passportSeries, int passportId, int flightsId)
+        public AppPassengers AddPassenger(string fullName, int passportSeries, int passportId, int flightsId)
         {
              return new AppPassengers()
             {
@@ -22,7 +21,7 @@ namespace FlyApp
                 AppFlightsId = flightsId
             };
         }
-        public  AppFlights AddFlight(int flightNumber, string from, string to)
+        public AppFlights AddFlight(int flightNumber, string from, string to)
         {
              return new AppFlights()
             {
@@ -31,7 +30,7 @@ namespace FlyApp
                 To = to
             };
         }
-        public  void RegistretedPassenger(int id)
+        public void RegistretedPassenger(int id)
         {
             var reg = db?.Passengers.FirstOrDefault(x => x.Id == id);
             if (reg != null)
