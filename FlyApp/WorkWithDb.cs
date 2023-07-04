@@ -9,12 +9,12 @@ namespace FlyApp
 {
     internal class WorkWithDb
     {
-        static AppDbContext db = new AppDbContext();
+        AppDbContext db = new AppDbContext();
 
 
-        public static void AddPassenger(string fullName, int passportSeries, int passportId, int flightsId)
+        public  AppPassengers AddPassenger(string fullName, int passportSeries, int passportId, int flightsId)
         {
-             new AppPassengers()
+             return new AppPassengers()
             {
                 FullName = fullName,
                 PassportSeries = passportSeries,
@@ -22,16 +22,16 @@ namespace FlyApp
                 AppFlightsId = flightsId
             };
         }
-        public static void AddFlight(int flightNumber, string from, string to)
+        public  AppFlights AddFlight(int flightNumber, string from, string to)
         {
-             new AppFlights()
+             return new AppFlights()
             {
                 FlightNumber = flightNumber,
                 From = from,
                 To = to
             };
         }
-        public static void RegistretedPassenger(int id)
+        public  void RegistretedPassenger(int id)
         {
             var reg = db?.Passengers.FirstOrDefault(x => x.Id == id);
             if (reg != null)
@@ -43,7 +43,7 @@ namespace FlyApp
                 Console.WriteLine("Пассажира с таким ID нет!");
             }
         }
-        public static void ShowFlights()
+        public void ShowFlights()
         {
             List<AppFlights> allFligths = db.Flights.ToList();
             foreach (var flight in allFligths)
@@ -51,7 +51,7 @@ namespace FlyApp
                 Console.WriteLine($"Номер рейса:{flight.FlightNumber}. Направление: {flight.From} - {flight.To}");
             }
         }      
-        public static void ShowPassangers()
+        public void ShowPassangers()
         {
             List<AppPassengers> allPassengers = db.Passengers.ToList();
             foreach (var passengers in allPassengers)

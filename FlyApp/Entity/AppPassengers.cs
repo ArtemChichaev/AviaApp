@@ -16,5 +16,4 @@ namespace FlyApp.Entity
         public AppFlights AppFlights { get; set; }
         public int AppFlightsId { get; set; }
     }
-
 }

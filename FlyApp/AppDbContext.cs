@@ -24,23 +24,29 @@ namespace FlyApp
                 .Property(x => x.FullName)
                 .IsRequired()
                 .HasColumnName("Фамилия Имя Отчество");
+
             modelBuilder.Entity<AppPassengers>()
                 .Property(x => x.PassportId)
                 .IsRequired()
                 .HasColumnName("Номер Паспорта");
+
             modelBuilder.Entity<AppPassengers>()
                 .Property(x => x.PassportSeries)
                 .IsRequired()
                 .HasColumnName("Серия Паспорта");
+
             modelBuilder.Entity<AppPassengers>()
                 .Property(x => x.Registered)
                 .IsRequired()
                 .HasColumnName("Пометка регистрации");
+
             modelBuilder.Entity<AppPassengers>()
                 .Property(x => x.AppFlightsId)
                 .HasColumnName("Номер рейса");
+
             modelBuilder.Entity<AppFlights>()
                 .Property(x => x.FlightNumber)
+                .IsRequired()
                 .HasColumnName("Номер рейса");
 
             var flight = new AppFlights()
