@@ -22,9 +22,9 @@ namespace FlyApp
                 AppFlightsId = flightsId
             };
         }
-        public static AppFlights AddFlight(int flightNumber, string from, string to)
+        public static void AddFlight(int flightNumber, string from, string to)
         {
-            return new AppFlights()
+             new AppFlights()
             {
                 FlightNumber = flightNumber,
                 From = from,
